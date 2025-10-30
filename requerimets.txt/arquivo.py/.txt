@@ -1,6 +1,6 @@
-# requirements.txt
+# requirements.txt 
 streamlit
 pandas
-scikit-learn
 matplotlib
 seaborn
+scikit-learn 
