@@ -6,6 +6,7 @@ from sklearn.metrics import accuracy_score  , classification_report , confusion_
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os 
+import numpy as np
 
 
 st.title ('Método random forest - Análise de dados do Titanic (taxa de sobreviventes)')
@@ -39,6 +40,7 @@ previsoses = modelo_random_forest.predict(X_test)
 acuracia = accuracy_score(Y_test , previsoses)
 relatorio = classification_report(Y_test, previsoses, output_dict=True)
 matriz_confusao = confusion_matrix(Y_test, previsoses)
+porcentagem_matriz = matriz_confusao / matriz_confusao.sum(axis=1)[:, np.newaxis] * 100
 print (f'----------------------Resultados-------------------')
 print (f'Acurácia do modelo : {acuracia *100 :.2f}')
 print ('Relatório de Classificação :')
@@ -81,7 +83,7 @@ with col_a :
 with col_b : 
     st.subheader('Matriz de Confusão')
     fig , ax = plt.subplots()
-    sns.heatmap(matriz_confusao , annot = True , fmt ='d' , cmap = 'Blues', ax = ax , xticklabels=['Previsto 0 ' , 'Não Previsto 1 '] , yticklabels = ['Real 0 ' , 'Não Real 1'])
+    sns.heatmap(porcentagem_matriz , annot = True , fmt='.2f' , cmap = 'Blues', ax = ax , xticklabels=['Previsto 0 ' , 'Não Previsto 1 '] , yticklabels = ['Real 0 ' , 'Não Real 1'])
     ax.set_xlabel('Rótulos Verdadeiros')
     ax.set_ylabel('Rótulos Preditos')
     st.pyplot(fig)
