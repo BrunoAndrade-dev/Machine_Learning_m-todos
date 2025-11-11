@@ -1,69 +1,41 @@
-# Desafio de Aprendizado de Máquina: Random Forest no Titanic
- 
+## 🛠️ README do Projeto: Regressão Linear no Boston Housing
 
-## Objetivo do Projeto 
+Este README lista todas as ferramentas, bibliotecas e pacotes utilizados no desenvolvimento e avaliação do modelo de Regressão Linear para o *Boston Housing Dataset*.
 
-- Criação de uma interface interativa com streamlit para a visualização do método de aprendizado de máquina - Random Forest
-- Aprender e demonstrar etapas de pré-processamento de dados, treinamento de modelo e análise de métricas.
+***
 
-## Etapas do projeto 
+### 1. Linguagem de Programação
 
-- Importação do dataset Titanic, da plataforma Kaggle, para tratamento e organização
-- Implementação do Random Forest 
-- Criação da interface com streamlit, possibilitando a visualização dos resultados, relatório e matriz de confusão
+| Linguagem | Uso Principal |
+| :--- | :--- |
+| **Python** 🐍 | Linguagem principal para todo o desenvolvimento, análise de dados e treinamento do modelo. |
 
-### Tecnologias utilizadas
+***
 
-- Python 3.11
-- Pandas
-- Numpy
-- Scikit-learn
-- Seaborn / Matplotlib
-- Streamlit
-- Git / GitHub
+### 2. Bibliotecas Essenciais para Ciência de Dados (PyData Stack)
 
-## Estrutura do projeto 
+| Biblioteca | Propósito Principal |
+| :--- | :--- |
+| **Pandas** | Utilizada para o **tratamento de dados** (`tabela.dropna()`), manipulação do *DataFrame*, e separação das variáveis *features* (`X`) e *target* (`Y`). |
+| **NumPy** | Utilizada indiretamente pela maioria das bibliotecas e explicitamente para manipulação eficiente de *arrays* numéricos. |
+| **Matplotlib** | Utilizada para a **visualização** dos resultados, especificamente para gerar o **Gráfico de Dispersão (Real vs. Previsto)** e salvar a imagem (`plt.savefig`). |
 
-Machine_learning_random_forest/
-├── .devcontainer/
-├── .git/
-├── .venv/
-├── dados/
-│   ├── dados_brutos/
-│   ├── dados_processados/
-│   └── titanic_tratado_final.csv
-├── outputs/
-│   ├── figures/
-│   └── modelos/
-├── source/
-│   ├── funcoes_auxiliares/
-│   │   ├── funcoes_ML.py
-│   │   └── funcoes_tratar_dados.py
-│   ├── app.py
-│   └── README.md
-├── .gitignore
-├── main.py
-├── Notebook/
-│   └── analise.ipynb
-├── requirements.txt
-└── README.md
+***
 
-## Instalação 
+### 3. Bibliotecas do Scikit-learn (Machine Learning)
 
-### Clonar o repositório
-git clone https://github.com/BrunoAndrade-dev/Machine_Learning_m-todos
+| Módulo/Classe | Propósito Principal |
+| :--- | :--- |
+| **`sklearn.model_selection`** | Contém a função **`train_test_split`**, crucial para dividir os dados nos conjuntos de treino e teste. |
+| **`sklearn.linear_model`** | Contém a classe **`LinearRegression`**, o modelo de regressão principal utilizado para o treinamento (`modelo.fit`) e previsão (`modelo.predict`). |
+| **`sklearn.metrics`** | Contém as funções de avaliação **`mean_squared_error`** (MSE) e **`r2_score`** ($R^2$), utilizadas para quantificar o desempenho do modelo. |
 
-### Entrar na pasta do projeto
-cd Machine_learning_m-todos
+***
 
-### Criar ambiente virtual
-python -m venv .venv
+### 4. Ferramentas e Conceitos Fundamentais
 
-### Ativar ambiente (Windows)
-.venv\Scripts\activate
-
-### Instalar dependências
-pip install -r requirements.txt
-
-### Rodar a aplicação Streamlit
-streamlit run source/funcoes_auxiliares/app.py
+| Ferramenta/Conceito | Aplicação no Projeto |
+| :--- | :--- |
+| **Tratamento de NaN** | Uso do método **`.dropna()`** no *DataFrame* para remover linhas com valores ausentes. |
+| **F-strings** | Utilizadas na formatação dos resultados para garantir **duas casas decimais** (`{variavel:.2f}`). |
+| **Boston Housing Dataset** | O **conjunto de dados** alvo do projeto, utilizado para prever o valor mediano das casas (`MEDV`). |
